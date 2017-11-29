@@ -1,0 +1,20 @@
+$('#posts_index').append(
+`
+<% @posts.each do |post| %>
+    <div class="post-preview">
+      <a href="<%= post_path(post) %>">
+        <h2 class="post-title">
+          <%= post.title %>
+        </h2>
+        <h3 class="post-subtitle">
+            <%= truncate post.contents, length: 50 %>
+        </h3>
+      </a>
+      <p class="post-meta">Posted by
+        <a href="<%= post_path(post) %>">Start Bootstrap</a>
+        <%= post.created_at.to_s(:short)%></p>
+    </div>
+    <hr>
+<% end %>
+`
+);

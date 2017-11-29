@@ -36,3 +36,22 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    var page_scroll_index = 2;
+    
+    $(document).on('scroll', function(){
+  	  // 진짜 중요한거!!!!!
+  	  if($(window).scrollTop() >= $(document).height() - $(window).height()) {
+  	    $.ajax({
+  	      method: "GET",
+          url: "<%= scroll_posts_path %>",
+          data: {
+            page: page_scroll_index++
+          }
+  	    })
+  	  }
+    });
+  });
+</script>

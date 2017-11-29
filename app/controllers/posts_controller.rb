@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").page(params[:page])
   end
 
   # GET /posts/1
@@ -59,6 +59,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def page_scroll
+    @posts = Post.order("created_at DESC").page(params[:page])
   end
 
   private

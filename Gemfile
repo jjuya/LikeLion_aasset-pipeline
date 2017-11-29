@@ -4,6 +4,7 @@ gem 'font-awesome-rails'
 gem 'faker'
 gem 'kaminari'
 gem 'devise'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
